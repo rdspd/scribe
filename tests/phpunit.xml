@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit>
+    <testsuites>
+        <testsuite name="Scribe Source Files">
+            <directory>./src</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".wsp">../src</directory>
+            <exclude>
+                <file>../Scribe</file>
+            </exclude>
+        </whitelist>
+    </filter>
+    <logging>
+    <log type="coverage-html" target="./reports" lowUpperBound="60" highLowerBound="90" />
+    </logging>
+</phpunit>

@@ -1,0 +1,11 @@
+<?php
+
+namespace Scribe;
+
+final class Scribe {
+
+    public function __construct() {
+
+    }
+
+}
