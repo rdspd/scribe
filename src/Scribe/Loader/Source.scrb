@@ -1,0 +1,28 @@
+<?php
+
+namespace Scribe\Loader;
+
+require_once( 'Loadable.scrb' );
+
+final class Source
+    implements Loadable {
+
+    const SCRIBE_EXT = '.scrb';
+
+    public final function load( $target = null ) {
+        if( empty( $target ) || !is_string( $target ) ) {
+            throw new \InvalidArgumentException( 'Source target to load should be a string and not empty' );
+        }
+
+        $target = str_replace( '\\', DIRECTORY_SEPARATOR, $target ) . self::SCRIBE_EXT;
+        $paths = explode( PATH_SEPARATOR, get_include_path() );
+
+        foreach( $paths as $path ) {
+            $source = $path . DIRECTORY_SEPARATOR . $target;
+            if( is_file( $source ) ) {
+                return require( $source );
+            }
+        }
+    }
+
+}

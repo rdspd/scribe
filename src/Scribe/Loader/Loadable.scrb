@@ -1,0 +1,9 @@
+<?php
+
+namespace Scribe\Loader;
+
+interface Loadable {
+
+    public function load( $target );
+    
+}

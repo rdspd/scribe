@@ -2,10 +2,15 @@
 
 namespace Scribe;
 
-final class Scribe {
+final class Scribe
+    implements Executable {
 
     public function __construct() {
 
+    }
+
+    public function execute() {
+        
     }
 
 }

@@ -1,4 +1,11 @@
 <?php
 
-set_include_path( get_include_path() . PATH_SEPARATOR . dirname( __FILE__ ) );
-echo get_include_path(); exit;
+set_include_path(
+    get_include_path() . PATH_SEPARATOR .
+    dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'src'
+);
+
+require_once( 'Scribe' . DIRECTORY_SEPARATOR . 'Loader' . DIRECTORY_SEPARATOR . 'Source.scrb' );
+spl_autoload_register( array( new Scribe\Loader\Source(), 'load' ) );
+
+$scribe = new Scribe\Scribe();
